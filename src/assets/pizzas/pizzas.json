@@ -1,0 +1,93 @@
+[
+    {
+        "id": 0,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/de6adfa6703040ff9d61fcc4241ab74d_138x138.jpeg",
+        "title": "Margherita Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 10,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 1,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/d1ff90d8f78e4e9ca27483c3b58bf8ef_292x292.webp",
+        "title": "Cheese Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 12,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 2,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/e015581a30614c1eb7cdd7e41fefadac_292x292.webp",
+        "title": "BBQ Chicken Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 9,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 3,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/e015581a30614c1eb7cdd7e41fefadac_292x292.webp",
+        "title": "Pepperoni Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 10,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 4,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/ca92cd38403d4696b0d102bcb420b072_292x292.webp",
+        "title": "Hawaiian Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 12,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 5,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/d872910637ca4b6e85fcd7d4e8f5d9a3_292x292.webp",
+        "title": "Vege Premium Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 11,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 6,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/7078fe63b2e34c2091cfb97b4ce7e775_292x292.webp",
+        "title": "Rustica Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 14,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 7,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/eedae424fff2450db34fb12c0735674b_292x292.webp",
+        "title": "Carbonara Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 13,
+        "category": 5,
+        "rating": 4
+    },
+    {
+        "id": 8,
+        "imageUrl": "https://dodopizza-a.akamaihd.net/static/Img/Products/ab2173c6090f4423b69abdffd029bbcc_292x292.webp",
+        "title": "Grilled Pizza",
+        "types": [0, 1],
+        "sizes": [26, 30, 40],
+        "price": 15,
+        "category": 5,
+        "rating": 4
+    }
+    
+]
