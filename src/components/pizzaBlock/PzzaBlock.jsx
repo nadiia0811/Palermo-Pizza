@@ -1,7 +1,6 @@
 import { AddButton } from "../button/AddButton";
 import React from 'react';
 
-//"https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
 
 export function PizzaBlock ({title, price, imageUrl, sizes, types}) {
   const typeNames = ['thin','traditional'];
@@ -32,9 +31,6 @@ export function PizzaBlock ({title, price, imageUrl, sizes, types}) {
                     className={activeSize === index ? 'active' : ''}
                     onClick = {() => setActiveSize(index)}>{size} cm.</li>
               ))}
-             {/*  <li className="active">26 cm.</li>
-              <li>30 cm.</li>
-              <li>40 cm.</li> */}
             </ul>
         </div>
         <div className="pizza-block__bottom">
