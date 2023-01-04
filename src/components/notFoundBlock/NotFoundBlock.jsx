@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styles from './NotFoundBlock.module.scss';
 
 export const NotFoundBlock = () => {
@@ -11,6 +12,7 @@ export const NotFoundBlock = () => {
         <br/>
         Nothing found
       </h1>
+      <p>Unfortunately, your search returned no results</p>
     </div> 
   )
 }

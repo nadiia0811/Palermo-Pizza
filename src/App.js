@@ -1,40 +1,42 @@
-//import pizzas from './assets/pizzas/pizzas.json';
-import React, { useState, useEffect } from 'react';
-import { Header } from './components/header/Header';
-import { Categories } from './components/categories/Categories';
-import { Sort } from './components/sort/Sort';
-import { PizzaBlock } from './components/pizzaBlock/PzzaBlock';
-import axios from 'axios';
 
+import React from 'react';
+import { Home } from './pages/Home';
+import { Header } from './components/header/Header';
+import { Cart } from './pages/Cart';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './scss/app.scss';
+import { NotFoundBlock } from './components/notFoundBlock/NotFoundBlock';
 
 
 function App() {
   
-  const [pizzas, setPizzas] = useState([]);
 
-  useEffect(() => {
-    axios.get('https://63b32a175901da0ab37909d9.mockapi.io/items')
-         .then(({data}) => setPizzas(data))
-  }, []);
+
   return ( 
+  <Router>
     <div className="wrapper">
       <Header />
       <div className="content">
-        <div className="container">
-          <div className="content__top">
-            <Categories />
-            <Sort />
-          </div>
-          <h2 className="content__title">All pizzas</h2>
-          <div className="content__items">
-           
-           {pizzas.map(obj => <PizzaBlock key={obj.id} {...obj} />        
-           )}
-          </div>
+        <div className="container">       
+          <Switch>
+            <Route path="/" exact>
+               <Home />
+            </Route>
+
+            <Route path="/cart">
+               <Cart />
+            </Route>
+
+            <Route path="*">
+               <NotFoundBlock />
+            </Route>
+
+          </Switch>
+        
         </div>
       </div>
     </div>
+  </Router>   
   );
 }
 
