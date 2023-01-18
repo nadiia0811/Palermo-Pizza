@@ -1,11 +1,10 @@
 import React from 'react';
 
-export function Sort () {
+export function Sort ({activeIndex, onClickSort}) {
   const [open, setIsOpen] = React.useState(false);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-
+  
   const onClickSelectItem = (i) => {
-    setActiveIndex(i);
+    onClickSort(i);
     setIsOpen(false);
   }  
 
