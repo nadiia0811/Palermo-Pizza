@@ -9,7 +9,6 @@ export function Sort ({ value, onClickSort }) {
     setIsOpen(false);
   } 
 
-
   const list = [{name: 'popularity', sortProp: 'rating'},  
                 {name: 'price', sortProp: 'price'},  
                 {name: 'alphabet', sortProp: 'title'}];
