@@ -5,15 +5,18 @@ import { Sort } from '../components/sort/Sort';
 import { PizzaBlock } from '../components/pizzaBlock/PzzaBlock';
 import { Pagination } from '../components/pagination/Pagination';
 import axios from 'axios';
+import { AppContext } from '../App';
 
 
-export const Home = ({searchValue}) => {
+export const Home = () => {
 
     const [pizzas, setPizzas] = React.useState([]);
     const [currentPage, setCurrentPage] = React.useState(1)
     const [isLoading, setIsLoading] = React.useState(true);
     const [categoryId, setCategoryId] = React.useState(0); 
     const [sortType, setSortType] = React.useState({name: 'popularity', sortProp: 'rating'});
+
+    const {searchValue} = React.useContext(AppContext);
 
     const onClickCategory = (index) => {
       setCategoryId(index);

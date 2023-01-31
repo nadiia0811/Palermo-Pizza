@@ -2,8 +2,10 @@ import React from 'react';
 import styles from './search.module.scss';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
+import { AppContext } from '../../App';
 
-export function Search({ searchValue, setSearchValue }) {
+export function Search() {
+  const {searchValue, setSearchValue} = React.useContext(AppContext);
   
   return (
     <div className={styles.root}>
