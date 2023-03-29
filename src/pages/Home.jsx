@@ -5,22 +5,30 @@ import { Sort } from '../components/sort/Sort';
 import { PizzaBlock } from '../components/pizzaBlock/PzzaBlock';
 import { Pagination } from '../components/pagination/Pagination';
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { setCategoryId, setSortType } from '../redux/slices/filterSlice';
 import { AppContext } from '../App';
 
 
 export const Home = () => {
-
+    const categoryId = useSelector(state => state.filter.categoryId);
+    const sortType = useSelector(state => state.filter.sortType);  //{name:'...', sortProp: '...'}
+    
     const [pizzas, setPizzas] = React.useState([]);
     const [currentPage, setCurrentPage] = React.useState(1)
     const [isLoading, setIsLoading] = React.useState(true);
-    const [categoryId, setCategoryId] = React.useState(0); 
-    const [sortType, setSortType] = React.useState({name: 'popularity', sortProp: 'rating'});
-
+    //const [sortType, setSortType] = React.useState({name: 'popularity', sortProp: 'rating'});
     const {searchValue} = React.useContext(AppContext);
-
+    const dispatch = useDispatch();
+    
     const onClickCategory = (index) => {
-      setCategoryId(index);
+      dispatch(setCategoryId(index)) 
     } 
+
+
+   /*  const onClickSort = (sortType) => {
+      dispatch(setSortType(sortType))
+    } */
 
     const pizzasList = pizzas.map(obj => <PizzaBlock key={obj.id} {...obj}/>);
     
@@ -51,8 +59,11 @@ export const Home = () => {
          <div className="content__top">
             <Categories categoryId={ categoryId }
                         onClickCategory={ onClickCategory }/>
-            <Sort value={ sortType }
-                  onClickSort={ (item) => setSortType(item) } />                 
+           {/*  <Sort value={ sortType }
+                   onClickSort={ (item) => setSortType(item) }  
+                  onClickSort={ onClickSort }/>   */} 
+
+            <Sort />                      
           </div>
           <h2 className="content__title">All pizzas</h2>
           <div className="content__items">

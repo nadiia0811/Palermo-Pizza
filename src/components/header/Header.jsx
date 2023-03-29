@@ -12,7 +12,7 @@ export function Header () {
             <img width={45} height={45} src={pizzaLogo} alt="Pizza logo" />
             <div>
               <h1>Palermo Pizza</h1>
-              <p>The most delicious pizza in the universe</p>
+              <p>The most delicious pizza of the Universe</p>
             </div>
           </div>
           </Link> 
