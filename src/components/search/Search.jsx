@@ -3,19 +3,41 @@ import styles from './search.module.scss';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
 import { AppContext } from '../../App';
+import { useRef } from 'react';
+import debounce  from 'lodash.debounce';
+
 
 export function Search() {
-  const {searchValue, setSearchValue} = React.useContext(AppContext);
+  const {setSearchValue} = React.useContext(AppContext);  //value = searchValue
+  const [value, setValue] = React.useState('');
+  const inputRef = useRef();
+
+  const updateSearchValue = React.useCallback(
+    debounce((value) => setSearchValue(value), 2000),
+    []);
+  
+  const onChangeInput = (e) => {  
+        setValue(e.target.value);
+        updateSearchValue(e.target.value)     
+  } 
+ 
+  const onClickClear = () => {
+    setValue('');
+    setSearchValue('');
+    inputRef.current.focus();
+  }
   
   return (
     <div className={styles.root}>
         <FiSearch className={styles.icon} />
-        <input className={styles.input}
-               placeholder='Search pizza...' 
-               value = {searchValue}
-               onChange = {(e) => setSearchValue(e.target.value)} /> 
+        <input 
+              ref = { inputRef }
+              className={styles.input}
+              placeholder='Search pizza...' 
+              value = {value}
+              onChange = { onChangeInput } /> 
          <IoMdClose className = {styles.close}
-                    onClick = {() => setSearchValue('')}/>
+                    onClick = { onClickClear }/>
     </div>
     
   )

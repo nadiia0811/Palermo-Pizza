@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {  //state
+const initialState = {  //state = filter
   categoryId: 0,
   sortType: {
     name: 'popularity', 

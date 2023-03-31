@@ -4,9 +4,11 @@
     border-radius: 10px; 
     display: flex; 
     
-    &:hover {
-        border: 1px solid rgba(29, 23, 77, 0.7);
-    }
+     &:hover {
+      border: 1px solid rgba(29, 23, 77, 0.7);
+    } 
+   
+    
 }
 
 .input {
@@ -29,6 +31,6 @@
     opacity: 0.6;
 
     &:hover {
-        opacity: 1;
-    }
+      opacity: 1;
+    } 
 }

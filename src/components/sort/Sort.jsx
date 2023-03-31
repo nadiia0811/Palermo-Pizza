@@ -1,14 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { AppContext } from '../../App';
+//import { AppContext } from '../../App';
 import { setSortType } from '../../redux/slices/filterSlice';
 
 
-/* export function Sort ({ value, onClickSort }) { */
 export function Sort () {
   
   const [open, setIsOpen] = React.useState(false);
-  //const value = React.useContext(AppContext);
   const dispatch = useDispatch();
   const sortType = useSelector(state => state.filter.sortType);
 
