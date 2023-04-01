@@ -13,12 +13,11 @@ export function Search() {
   const inputRef = useRef();
 
   const updateSearchValue = React.useCallback(
-    debounce((value) => setSearchValue(value), 2000),
-    []);
-  
+        debounce((val) => setSearchValue(val), 2000), []); 
+
   const onChangeInput = (e) => {  
         setValue(e.target.value);
-        updateSearchValue(e.target.value)     
+        updateSearchValue(e.target.value);     
   } 
  
   const onClickClear = () => {
