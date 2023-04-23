@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 
-export function AddButton () {
+export function AddButton ({onClickAdd , count}) {
 
-  let [pizzaCount, setPizzaCount] = useState(0);
+  //let [pizzaCount, setPizzaCount] = useState(0);
   
-  const onClickAddButton = () => {
+ /*  const onClickAddButton = () => {
     setPizzaCount(pizzaCount => pizzaCount + 1);
-  }
+  } */
  
     return (
         <button className="button button--outline button--add"
-             onClick={onClickAddButton}>
+                onClick={ onClickAdd } >
                   <svg
                     width="12"
                     height="12"
@@ -24,7 +24,7 @@ export function AddButton () {
                     fill="white"  />                
                   </svg>
                   <span>Add</span>
-                  <i>{pizzaCount}</i>
+                  <i> {count} </i>
         </button>
     )
 }

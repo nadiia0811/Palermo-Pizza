@@ -1,11 +1,31 @@
+import React from "react";
 import { AddButton } from "../button/AddButton";
-import React from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../../redux/slices/cartSlice";
 
 
-export function PizzaBlock ({title, price, imageUrl, sizes, types}) {
-  const typeNames = ['thin','traditional'];
+export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) {
+  const typeNames = ["thin","traditional"];
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
+  const dispatch = useDispatch();
+
+  const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id));
+  const addedCount = cartItem ? cartItem.count : 0;
+  
+  
+  const onClickAdd = () => {  //add pizza to the cart
+   const item = {
+    id,
+    title, 
+    price,
+    imageUrl,
+    type: typeNames[activeType],
+    size: activeSize
+   }
+
+   dispatch(addItem(item)); //item = action.payload in cartSlice
+  }
 
     return (
     <div className="pizza-block-wrapper">
@@ -35,7 +55,7 @@ export function PizzaBlock ({title, price, imageUrl, sizes, types}) {
         </div>
         <div className="pizza-block__bottom">
            <div className="pizza-block__price">from {price} $</div>
-              <AddButton />
+              <AddButton onClickAdd={onClickAdd} count = {addedCount} />
             </div>
            </div>  
     </div>

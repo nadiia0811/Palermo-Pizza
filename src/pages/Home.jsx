@@ -7,19 +7,23 @@ import { Pagination } from '../components/pagination/Pagination';
 import axios from 'axios';
 import qs from 'qs';
 import { useSelector, useDispatch } from 'react-redux';
-import { setCategoryId, setCurrentPage } from '../redux/slices/filterSlice';
+import { setCategoryId, setCurrentPage, setFilters } from '../redux/slices/filterSlice';
 import { AppContext } from '../App';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export const Home = () => {
 
-    const { categoryId, sortType, currentPage } = useSelector(state => state.filter)  //filter = filterSlice in state(store.js)
-    //const navigate = useNavigate();
+    const { categoryId, sortType, currentPage } = useSelector(state => state.filter)  //filter = filterSlice in state(store.js) 
     const [pizzas, setPizzas] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
     const {searchValue} = React.useContext(AppContext);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+    
+    const list = [{name: 'popularity', sortProp: 'rating'},  
+    {name: 'price', sortProp: 'price'},  
+    {name: 'alphabet', sortProp: 'title'}]; 
  
     const onClickCategory = (index) => {
       dispatch(setCategoryId(index)) 
@@ -30,6 +34,15 @@ export const Home = () => {
     }    
 
     const pizzasList = pizzas.map(obj => <PizzaBlock key={obj.id} {...obj}/>);
+
+    React.useEffect(() => {
+    if (window.location.search) {
+    const params = qs.parse(window.location.search.substring(1));
+    const sort = list.find(obj => obj.sortProp === params.sortProp);
+    dispatch(setFilters({...params, ...sort})) ;      
+    }
+    }, []);
+    
     
     React.useEffect(() => {    
        async function getData () {
@@ -47,18 +60,18 @@ export const Home = () => {
       } 
   
       getData();     
-      }, [categoryId, sortType, searchValue, currentPage]);
+      }, [categoryId, sortType.sortProp, searchValue, currentPage]);  
 
       
-     /*  React.useEffect(() => {
-        const queryString = qs.stringify({
-          sortProp: sortType.sortProp,
-          categoryId,
-          currentPage,
-        })
-
-        navigate(`?${queryString}`)
-      }, [categoryId, sortType, searchValue, currentPage]) */
+      React.useEffect(() => {
+          const queryString = qs.stringify({
+            sortProp: sortType.sortProp,
+            categoryId,
+            currentPage,        
+          });
+        
+         navigate(`?${queryString}`)//adding this string to the browser url
+      }, [categoryId, sortType.sortProp, searchValue, currentPage]);  
 
      
     return (
