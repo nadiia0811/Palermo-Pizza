@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
 
 
-export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) {
+export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) { //types = [0, 1] sizes=[26, 30, 40]
   const typeNames = ["thin","traditional"];
   const [activeType, setActiveType] = React.useState(0);
   const [activeSize, setActiveSize] = React.useState(0);
@@ -21,9 +21,9 @@ export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) {
     price,
     imageUrl,
     type: typeNames[activeType],
-    size: activeSize
+    size: sizes[activeSize]
    }
-
+   //console.log(item.size)
    dispatch(addItem(item)); //item = action.payload in cartSlice
   }
 
@@ -40,7 +40,7 @@ export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) {
             <ul>
               {types.map((type, index) => (
                 <li key={index} 
-                    className={activeType === index ? 'active' : ''}
+                    className={activeType === index ? "active" : ""}
                     onClick={() => setActiveType(index)}>{typeNames[type]}</li>
               ))}
             </ul>
@@ -48,7 +48,7 @@ export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) {
 
               {sizes.map((size, index) => (
                 <li key={index}
-                    className={activeSize === index ? 'active' : ''}
+                    className={activeSize === index ? "active" : ""}
                     onClick = {() => setActiveSize(index)}>{size} cm.</li>
               ))}
             </ul>
