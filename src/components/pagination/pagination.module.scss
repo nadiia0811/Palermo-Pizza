@@ -1,26 +1,39 @@
-   .root {
-        li {
-            display: inline-flex;
-                a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 1em;
-                    width: 40px;
-                    height: 40px;
-                    border: 1px solid #fe5f1e;
-                    border-radius: 30px;
-                    margin-right: 10px;
-                    font-weight: 600;
-                    cursor: pointer;    
-                    text-align: center;
-                    color:#fe5f1e;
 
-                        &:hover {
-                            background-color: #fe5f1e;              
-                            color: #fff;       
-                        }
-                }          
-             }     
+ .root {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+  
+    li {
+      display: inline-flex;
+  
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1em;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #fe5f1e;
+        border-radius: 30px;
+        margin-right: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        color: #fe5f1e;
+        text-decoration: none;
+  
+        &:hover {
+          background-color: #fe5f1e;
+          color: #fff;
+        }       
+      }   
     }
+  }
 
+  .selected a {
+    background: #fe5f1e !important;
+    color: #fff !important;   
+  }
+  
+  

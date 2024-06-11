@@ -1,19 +1,18 @@
-import React from 'react';
-import styles from './search.module.scss';
+import React, { useContext, useRef, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
 import { IoMdClose } from 'react-icons/io';
 import { AppContext } from '../../App';
-import { useRef } from 'react';
 import debounce  from 'lodash.debounce';
+import styles from './search.module.scss';
 
 
-export function Search() {
-  const {setSearchValue} = React.useContext(AppContext);  //value = searchValue
-  const [value, setValue] = React.useState('');
+export const Search = () => {
+  const {searchValue, setSearchValue} = useContext(AppContext);  
+  const [value, setValue] = useState('');
   const inputRef = useRef();
 
   const updateSearchValue = React.useCallback(
-        debounce((val) => setSearchValue(val), 2000), []); 
+        debounce((value) => setSearchValue(value), 2000), []); 
 
   const onChangeInput = (e) => {  
         setValue(e.target.value);
@@ -37,8 +36,7 @@ export function Search() {
               onChange = { onChangeInput } /> 
          <IoMdClose className = {styles.close}
                     onClick = { onClickClear }/>
-    </div>
-    
+    </div>   
   )
 }
 

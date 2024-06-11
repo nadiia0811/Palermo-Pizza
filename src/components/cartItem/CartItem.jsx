@@ -1,12 +1,11 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { addItem, removeItem } from "../../redux/slices/cartSlice";//new
+import { addItem, removeItem } from "../../redux/slices/cartSlice";
 
 
 const CartItem = ({id, title, price, count, imageUrl, type, size}) => {
     const dispatch = useDispatch();
 
-    //new
     const onClickPlus = () =>{
       dispatch(addItem({
         id,
@@ -15,25 +14,23 @@ const CartItem = ({id, title, price, count, imageUrl, type, size}) => {
     };
 
 
-    const onClickMinus = () => {  //new
+    const onClickMinus = () => {  
         if(window.confirm("Are you sure you want to remove?")) {
             dispatch(removeItem({id},))
-        }
-        
+        }       
     }
 
     return (
         <div className="cart__item">
             <div className="cart__item-img">
-                <img
-                    className="pizza-block__image"
-                    src = {imageUrl}  /*imageUrl */
-                    alt="Pizza"
+                <img className="pizza-block__image"
+                     src = {imageUrl}  
+                     alt="Pizza"
                 />
             </div>
             <div className="cart__item-info">
-                <h3>{title}</h3>{/*title */}
-                <p>{type}, {size} сm.</p>{/**type of dough, size */}
+                <h3>{title}</h3>
+                <p>{type}, {size} сm.</p>
             </div>
             <div className="cart__item-count">
                 <div className="button button--outline button--circle cart__item-count-minus"
@@ -43,7 +40,7 @@ const CartItem = ({id, title, price, count, imageUrl, type, size}) => {
                         <path d="M5.75998 5.92001L3.83998 5.92001L0.959977 5.92001C0.429817 5.92001 -2.29533e-05 5.49017 -2.29301e-05 4.96001C-2.2907e-05 4.42985 0.429817 4.00001 0.959977 4.00001L3.83998 4L5.75998 4.00001L8.63998 4.00001C9.17014 4.00001 9.59998 4.42985 9.59998 4.96001C9.59998 5.49017 9.17014 5.92001 8.63998 5.92001L5.75998 5.92001Z" fill="#EB5A1E"/>
                     </svg>        
                 </div>
-                <b>{count}</b>  {/**count */}
+                <b>{count}</b>  
                 <div className="button button--outline button--circle cart__item-count-plus"
                      onClick={onClickPlus}>
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,7 +50,7 @@ const CartItem = ({id, title, price, count, imageUrl, type, size}) => {
                 </div>
             </div>
             <div className="cart__item-price">
-            <b>{price * count} $</b>{/**price */}
+            <b>{price * count} $</b>
             </div>
             <div className="cart__item-remove">
                 <div className="button button--outline button--circle">

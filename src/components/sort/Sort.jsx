@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType } from '../../redux/slices/filterSlice';
 
 
 export function Sort () {
   
-  const [open, setIsOpen] = React.useState(false);
+  const [open, setIsOpen] = useState(false);
   const dispatch = useDispatch();
   const sortType = useSelector(state => state.filter.sortType);
-  const sortRef = React.useRef();  //div className = "sort"
+  const sortRef = useRef();  
  
   const onClickSort = (item) => {
    dispatch(setSortType(item));
@@ -19,7 +19,7 @@ export function Sort () {
     setIsOpen(false);
   }
 
-  React.useEffect(()=> {
+  useEffect(()=> {
     const handleClick = (e) => {
       const path = e.composedPath();
       if( !path.includes(sortRef.current )) {
@@ -27,12 +27,13 @@ export function Sort () {
     }
   }
 
-     document.body.addEventListener('click', handleClick);
+   document.body.addEventListener('click', handleClick);
 
-     return () => {
+   return () => {
       document.body.removeEventListener('click', handleClick);
      }
-  }, []) 
+  }, []);
+
 
   const list = [{name: 'popularity', sortProp: 'rating'},  
                 {name: 'price', sortProp: 'price'},  
@@ -57,15 +58,13 @@ export function Sort () {
               </div>
               {open && <div className="sort__popup">
                 <ul>
-
                   {list.map((elem, index) => 
                     <li key={index}
                         className={sortType.sortProp === elem.sortProp ? 'active' : ''}
                         onClick={() => onClickSelectItem(elem)}>{elem.name} 
                     </li>)}
                 </ul>                
-              </div>}
-              
+              </div>}            
         </div>
     )
 }

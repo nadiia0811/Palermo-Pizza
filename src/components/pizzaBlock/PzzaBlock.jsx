@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { AddButton } from "../button/AddButton";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../../redux/slices/cartSlice";
 
 
-export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) { //types = [0, 1] sizes=[26, 30, 40]
+export const PizzaBlock  = ({id, title, price, imageUrl, sizes, types})  => { 
+ 
   const typeNames = ["thin","traditional"];
-  const [activeType, setActiveType] = React.useState(0);
-  const [activeSize, setActiveSize] = React.useState(0);
+  const [activeType, setActiveType] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
   const dispatch = useDispatch();
 
   const cartItem = useSelector(state => state.cart.items.find(obj => obj.id === id));
   const addedCount = cartItem ? cartItem.count : 0;
   
   
-  const onClickAdd = () => {  //add pizza to the cart
+  const onClickAdd = () => {  
    const item = {
     id,
     title, 
@@ -23,7 +24,7 @@ export function PizzaBlock ({id, title, price, imageUrl, sizes, types}) { //type
     type: typeNames[activeType],
     size: sizes[activeSize]
    }
-   //console.log(item.size)
+   
    dispatch(addItem(item)); //item = action.payload in cartSlice
   }
 

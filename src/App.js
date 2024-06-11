@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import { Home } from './pages/Home';
 import { Header } from './components/header/Header';
 import { Cart } from './pages/Cart';
@@ -8,11 +8,11 @@ import { NotFoundBlock } from './components/notFoundBlock/NotFoundBlock';
 //import { useSelector, useDispatch } from 'react-redux';
 import './scss/app.scss';
 
-export const AppContext = React.createContext('');
+export const AppContext = createContext('');
 
 function App() {
 
-  const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = useState('');
   return ( 
     
       <Router>
@@ -30,8 +30,7 @@ function App() {
             </div>
           </AppContext.Provider> 
         </div>
-      </Router> 
-       
+      </Router>       
   );
 }
 

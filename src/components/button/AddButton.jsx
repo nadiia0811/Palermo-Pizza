@@ -1,13 +1,7 @@
 import { useState } from "react";
 
 
-export function AddButton ({onClickAdd , count}) {
-
-  //let [pizzaCount, setPizzaCount] = useState(0);
-  
- /*  const onClickAddButton = () => {
-    setPizzaCount(pizzaCount => pizzaCount + 1);
-  } */
+export const AddButton  = ({onClickAdd , count}) => {
  
     return (
         <button className="button button--outline button--add"

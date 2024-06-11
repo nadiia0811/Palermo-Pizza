@@ -1,8 +1,8 @@
 import React from 'react';
 
-export function Categories ({categoryId, onClickCategory}) { 
+export const Categories = ({categoryId, onClickCategory}) => { 
 
-const categories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Cheese'];
+  const categories = ['All', 'Meat', 'Vegetarian', 'Grill', 'Spicy', 'Cheese'];
 
     return (
         <div className="categories">
