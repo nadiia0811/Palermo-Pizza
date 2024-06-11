@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Palermo-Pizza/static/css/main.5718312c.css",
-    "main.js": "/Palermo-Pizza/static/js/main.936d405e.js",
+    "main.js": "/Palermo-Pizza/static/js/main.04ae8121.js",
     "index.html": "/Palermo-Pizza/index.html",
     "main.5718312c.css.map": "/Palermo-Pizza/static/css/main.5718312c.css.map",
-    "main.936d405e.js.map": "/Palermo-Pizza/static/js/main.936d405e.js.map"
+    "main.04ae8121.js.map": "/Palermo-Pizza/static/js/main.04ae8121.js.map"
   },
   "entrypoints": [
     "static/css/main.5718312c.css",
-    "static/js/main.936d405e.js"
+    "static/js/main.04ae8121.js"
   ]
 }
